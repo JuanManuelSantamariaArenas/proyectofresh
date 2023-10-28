@@ -62,16 +62,17 @@ class Bodega {
     }
 }
 
-function programaOrigen() {
-    let bodegaUno = new Bodega();
-    bodegaUno.encargado = "Luis";
-    document.write(`Encargado: ${bodegaUno.encargado}` + "<br>");
-    bodegaUno.agregarEmpleado(1, "Carlos");
-    bodegaUno.agregarEmpleado(2, "Fabio");
-    let empleados = bodegaUno.obtenerEmpleados()
-    for (const empleado of empleados) {
-        document.write(empleado.obtenerInformacion())
-    }
-}
+// function programaOrigen() {
+//     let bodegaUno = new Bodega();
+//     bodegaUno.encargado = "Luis";
+//     document.write(`Encargado: ${bodegaUno.encargado}` + "<br>");
+//     bodegaUno.agregarEmpleado(1, "Carlos");
+//     bodegaUno.agregarEmpleado(2, "Fabio");
+//     let empleados = bodegaUno.obtenerEmpleados()
+//     for (const empleado of empleados) {
+//         document.write(empleado.obtenerInformacion())
+    
+//     }
+// }
 
-programaOrigen()
+// // programaOrigen()
