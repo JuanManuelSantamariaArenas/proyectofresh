@@ -1,8 +1,7 @@
 import Consola from "lenguajeuno\interfas\consola.js"
 
 var consolaUno = new Consola();
-const botonAgregarempleados = document.getElementById("agregarEmpleados");
-botonAgregarempleados.addEventListener("click", consolaUno.obtAgregarEmpleado.bind(consolaUno));
+document.getElementById("p1").innerHTML=consolaUno.obtAgregarEmpleado()
 // let botonAgregarEmpreados = document.createElement("button");
 // let botonAgregarPuntosExperiencia = document.createElement("button");
 // botonAgregarEmpreados.innerHTML = "AGREGAR EMPLEADOS";

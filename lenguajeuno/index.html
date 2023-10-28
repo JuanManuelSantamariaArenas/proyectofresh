@@ -3,19 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module"  ="lenguajeuno\interfas\app_consola.js"></script>
-    <title>GRUPOFRESH</title>
-    <script src="lenguajeuno\interfas\app_consola.js"></script>
+    <script>
+        class Empleado {
+            constructor(dni, nombre) {
+                this.dni = dni;
+                this.nombre = nombre;
+                this.calenMensual = [];
+            }
+
+            obtenerInformacion() {
+                return `DNI: ${this.dni}` + "<br>" + `NOMBRE: ${this.nombre}` + "<br>"
+                + `CALENDARIO: ${this.calen_mensual}`+ "<br>";
+            }
+        }
+
+        class Producto {
+            constructor(codigo, detalle, existencia, costo) {
+                this.codigo = codigo;
+                this.detalle = detalle;
+                this.existencia = existencia;
+                this.costo = costo;
+            }
+
+            obtenerInformacion() {
+                return `CODIGO: ${this.codigo}` + "<br>" + `DETALLE: ${this.detalle}` + "<br>" + 
+                `EXISTENCIA: ${this.existencia}` + "<br>" + `COSTO: ${this.costo}` + "<br>";
+            }
+        }
+
+        class PuntosExperiencia {
+            constructor(codigo, nombre) {
+                this.codigo = codigo;
+                this.nombre = nombre;
+            }
+
+            obtenerInformacion() {
+                return `CODIGO; ${this.codigo}` + "<br>" + `NOMBRE: ${this.nombre}` + "<br>";
+            }
+        }
+
+        class Bodega {
+            constructor() {
+                this.encargado = "";
+                this.empleados = {};
+                this.productos = {};
+                this.puntosExperiencia = {};
+            }
+
+            agregarEmpleado(dni, nombre) {
+                let empleado = new Empleado(dni, nombre);
+                this.empleados[dni] = empleado;
+            }
+
+            obtenerEmpleados() {
+                return Object.values(this.empleados);
+            }
+            
+            obtenerProductos() {
+                return Object.values(this.productos);
+            }
+
+            obtenerPuntoExperiencia() {
+                return Object.values(this.puntosExperiencia)
+            }
+        }
+        
+        class Consola {
+            constructor() {
+                this.bodega = new Bodega();
+            }
+            
+            obtAgregarEmpleado() {
+                this.bodega.agregarEmpleado(11, "Lucas");
+                let empleados = this.bodega.obtenerEmpleados();
+                // for (empleado in empleados) {
+                //     document.write(empleado.obtenerInformacion());
+                // }
+                return empleados
+            }
+        }
+        
+        function inicar_programa() {
+            var consolaUno = new Consola();
+            let empleados = consolaUno.obtAgregarEmpleado()
+            document.getElementById("p1").innerHTML=empleados
+        }
+    </script>
+    <title>DEDUCCION DE INVENTARIO</title>
 </head>
-<body>  
+<body>
     <h1>DEDUCIONES DE INVENTARIO</h1>
     <div>
         <h2>MENU DE OPCIONES</h2>
-        <button id="agregarEmpleados">AGREGAR EMPLEADOS</button>
+        <input type="button" value="GENERAR EMPLEADOS" onclick="inicar_programa()"
     </div>
     <div>
-        <h2>RESULTADO GENERADO</h2>
-        <p id="p1">Aqui va a aparecer el resultado de lo que elijas</p>
+        <h2>RESULTADOS GENERADOS</h2>
+        <p id="p1">En este apartado se veran reflejados los resultados</p>
     </div>
 </body>
 </html>
